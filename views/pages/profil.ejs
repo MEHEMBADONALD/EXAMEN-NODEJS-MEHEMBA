@@ -1,0 +1,58 @@
+<%- include('../template/header.ejs'); -%>
+
+
+     <%- include('../component/nav.ejs'); -%>
+
+
+<main class="container bg-light">
+     <section class="row mt-5 px-5 py-5">
+          <aside class="col-md-4">
+               <div class="card" >
+                    <img src="/images/<%= user.photo %>" class="card-img-top rounded-circle" alt="..." width="200" height="200">
+                    <div class="card-body text-center">
+                         <h5 class="card-title"><%= user.name %></h5>
+                         <p class="card-text"><%= user.metier %></p>
+                         <p class="card-text"><%= user.description %></p>
+                    </div>
+                    <button  class="btn btn-primary"><a href="/updateuser/<%= user.idUser %>" style="color: white;">Modifier Mon Profil</a></button>
+               </div>
+          </aside>
+
+          <aside class="col-lg-8 col-md-8 ">
+
+               <table class="table" style="background-color: white;">
+                  <thead>
+                     <tr>
+                         <th scope="col">NOM</th>
+                             <td><%= user.name %></td>
+                    </tr>
+                    <tr>
+                         <th scope="col">PRENOM</th>
+                              <td><%= user.prenom %></td>
+                    </tr>
+                    <tr>
+                         <th scope="col">EMAIL</th>
+                              <td><%= user.email %></td>
+                    </tr>
+                    <tr>
+                         <th scope="col">MOT DE PASSE</th>
+                              <td><%= user.password %></td>
+                    </tr>
+                     <tr>
+                         <th scope="col">MOBILE</th>
+                              <td><%= user.tel %></td>
+                    </tr>
+                    <tr>
+                         <th scope="col">ADRESS</th>
+                              <td><%= user.adress %></td>
+                    </tr>
+                         
+                  </thead>
+               </table>
+                              
+          </aside>
+     </section>
+</main> 
+
+
+<%- include('../template/footer.ejs'); -%>

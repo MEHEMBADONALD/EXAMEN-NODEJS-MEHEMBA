@@ -1,0 +1,42 @@
+<%- include('../template/header.ejs'); -%>
+ 
+       <%- include('../component/nav.ejs'); -%>
+
+       <div class="container mt-5">
+        <p class="display-6 text-center">CREER UN ARTICLE</p>
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-6">
+
+            <% if (locals.error) { %>
+                <div class="alert alert-danger text-center">
+                     TOUS LES CHAMPS SONT OBLIGATOIRES
+                </div>
+              <% } %>
+                  
+              <% if (locals.succes) { %>
+                <div class="alert alert-success text-center">  
+                     COMPTE CREE AVEC SUCCES!!
+                </div>
+              <% } %>
+                   
+             
+            <form action="/creer" method="post" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="nom" class="form-label"></label>
+                <input type="nom" class="form-control" id="nom" placeholder="Titre de l'article" name="nom">
+              </div>
+              <div class="mb-3">
+                <label for="file" class="form-label">Image de l'article</label>
+                <input class="form-control" type="file" id="file" name="file">
+            </div>
+            <div class="mb-3">
+                <label for="comment" class="form-label">DESCRIPTION</label>
+                <textarea class="form-control" id="comment" rows="3" name="comment"></textarea>
+            </div>    
+              <button type="submit" class="btn btn-secondary w-100" style="border-radius: 50px;">Creer un article</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+<%- include('../template/footer.ejs'); -%>

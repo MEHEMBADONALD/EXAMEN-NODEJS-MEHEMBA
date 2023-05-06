@@ -1,0 +1,82 @@
+<%- include('../template/header.ejs'); -%>
+
+    <%- include('../component/navbar.ejs'); -%>
+
+<div class="container mt-5">
+  <P class="display-6 text-center">CREER UN COMPTE</P>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-7">
+
+      <% if (locals.error) { %>
+        <div class="alert alert-danger text-center">
+             TOUS LES CHAMPS SONT OBLIGATOIRES
+        </div>
+      <% } %>
+          
+      <% if (locals.succes) { %>
+        <div class="alert alert-success text-center">  
+             COMPTE CREE AVEC SUCCES!!
+        </div>
+      <% } %>
+           
+      <% if (locals.email) { %>
+        <div class="alert alert-danger text-center">
+            CET EMAIL EXISTE DEJA
+        </div>
+      <% } %>
+
+      <form action="/register" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="nom" class="form-label"></label>
+          <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
+        </div>
+        <div class="mb-3">
+          <label for="prenom" class="form-label"></label>
+          <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prenom">
+      </div>
+        <div class="mb-3">
+            <label for="email" class="form-label"></label>
+            <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="pass" class="form-label"></label>
+            <input type="password" class="form-control" id="pass" name="pass">
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="check">
+              <label class="form-check-label" for="check">
+                 See password
+            </label>
+          </div>
+        </div>
+        <div class="mb-3">
+            <label for="metier" class="form-label"></label>
+            <input type="text" class="form-control" id="metier" name="metier" placeholder="Votre Metier">
+        </div>
+        <div class="mb-3">
+             <label for="tel" class="form-label"></label>
+             <input type="text" class="form-control" id="tel" name="tel" placeholder="Telephone">
+        </div>
+        <div class="mb-3">
+            <label for="adress" class="form-label"></label>
+            <input type="text" class="form-control" id="metier" name="adress" placeholder="Votre Adress">
+        </div>
+        <div class="mb-3">
+            <label for="file" class="form-label">Your Picture</label>
+            <input class="form-control" type="file" id="file" name="file">
+        </div>
+        <div class="mb-3">
+            <label for="comment" class="form-label">DESCRIPTION</label>
+            <textarea class="form-control" id="comment" rows="3" name="comment"></textarea>
+        </div>
+        
+        <p class="my-3 text-center">
+          <a href="/login">Connexion</a>
+        </p>
+        <button type="submit" class="btn btn-primary w-100" style="border-radius: 50px;">Inscription</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('../template/footer.ejs'); -%>
+<script src="javascripts/index.js"></script>

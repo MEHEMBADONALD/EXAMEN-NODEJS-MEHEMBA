@@ -1,0 +1,35 @@
+<%- include('../template/header.ejs'); -%>
+
+   <%- include('../component/navbar.ejs'); -%>
+
+<div class="container mt-5">
+  <p class="display-6 text-center">CONNECTEZ-VOUS</p>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-7">
+      <% if (locals.error) { %>
+        <div class="alert alert-danger text-center">                    
+            INDENTINFIANT INCORRECT!!!
+        </div>
+      <% } %>
+      <form action="/login" method="post">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+        </div>
+        <div class="mb-3">
+          <label for="pass" class="form-label">Password</label>
+          <input type="password" class="form-control" id="pass" name="pass">
+          <label class="form-check-label" for="check">
+            See password
+          </label>
+        </div>
+        <p class="my-3 text-center">
+          Pas de Compte?<a href="/register">Creer un Compte</a>
+        </p>
+        <button type="submit" class="btn btn-secondary w-100" style="border-radius: 50px;">Connexion</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('../template/footer.ejs'); -%>

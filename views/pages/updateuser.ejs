@@ -1,0 +1,51 @@
+<%- include('../template/header.ejs'); -%>
+
+     <%- include('../component/nav.ejs'); -%>
+
+
+     <div class="container mt-5">
+         <p class="display-6 text-center">Modifier Mon Profil</p>
+         <div class="row d-flex justify-content-center">
+
+            <% if (locals.error) { %>
+                <div class="alert alert-danger text-center">
+                     TOUS LES CHAMPS SONT OBLIGATOIRES
+                </div>
+              <% } %>
+
+                <form action="/updateuser/<%= user.idUser %>" method="post">      
+                    <div class="mb-3"> 
+                        <input type="text" class="form-control" name="nom"  value="<%= user.name %>">
+                    </div>
+                    <div class="mb-3"> 
+                        <input type="text" class="form-control" name="prenom"  value="<%= user.prenom %>">
+                    </div>
+                    <div class="mb-3">
+                         <input type="email" class="form-control" name="email"  value="<%= user.email %>">
+                    </div>
+                    <div class="mb-3"> 
+                        <input type="text" class="form-control" name="pass"  value="<%= user.password %>">
+                    </div>
+                    <div class="mb-3"> 
+                        <input type="text" class="form-control" name="metier"  value="<%= user.metier %>">
+                    </div>
+                    <div class="mb-3"> 
+                        <input type="text" class="form-control" name="tel"  value="<%= user.tel %>">
+                    </div>
+                    <div class="mb-3"> 
+                        <input type="text" class="form-control" name="adress"  value="<%= user.adress %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="file" class="form-label"></label>
+                        <input class="form-control" type="file" id="file" name="file" value="<%= user.photo %>">
+                    </div>
+                    <div class="mb-3"> 
+                        <input type="text" class="form-control" name="comment"  value="<%= user.description %>">
+                    </div>
+                    <button type="submit" class="btn btn-secondary w-100" style="border-radius: 50px;">Actualiser</button>
+                </form>
+         </div>
+    </div>
+
+
+<%- include('../template/footer.ejs'); -%>
